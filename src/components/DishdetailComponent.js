@@ -1,5 +1,9 @@
 import React from 'react';
-import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, Breadcrumb, BreadcrumbItem
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 //Presentational Component
 
@@ -53,8 +57,22 @@ const DishDetail = (props) => {
         return (
             <div class="container">
                 <div className="row">
-                    <RenderDish dish={DISH} />
-                    <RenderComments comments={DISH.comments} />
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{DISH.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                        <h3>{DISH.name}</h3>
+                        <hr />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderDish dish={DISH} />
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderComments comments={DISH.comments} />
+                    </div>
                 </div>
             </div>
         );
