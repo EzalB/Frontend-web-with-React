@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 //Presentational Component
 
-
 function RenderDish({ dish }) {
     return (
         <div className="col-12 col-md-5 m-1">
@@ -67,14 +66,10 @@ const DishDetail = (props) => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderDish dish={DISH} />
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={DISH.comments} />
-                    </div>
+                    <RenderDish dish={DISH} />
+                    <RenderComments comments={props.comments} />
                 </div>
-            </div>
+            </div >
         );
     else
         return (
